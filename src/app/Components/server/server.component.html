@@ -1,0 +1,18 @@
+<div class="card server-card">
+  <p>Server works! <br>Status: {{serverStatus}}</p>
+  <div class="column">
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="inventoryNumber"
+    >
+  </div>
+  <div class="row">
+    <button
+      class="btn btn-info"
+      [disabled]="!allowNewServer"
+      (click)="createServer()"
+    >Create server
+    </button>
+  </div>
+</div>

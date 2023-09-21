@@ -1,0 +1,21 @@
+html, body {
+  margin: 0;
+}
+
+.container {
+  margin-top: 20px;
+
+  .server-list {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+
+}
+
+@media screen and (max-width: 575px) {
+
+}
