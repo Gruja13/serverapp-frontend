@@ -13,14 +13,14 @@ export class AppComponent implements OnInit {
   constructor(private serverService: ServerService) {}
 
   ngOnInit() {
-    // Load the server data from the service
-    this.serverService.getServers().subscribe((servers) => {
+    // Subscribe to the servers$ observable
+    this.serverService.servers$.subscribe((servers) => {
       this.servers = servers;
     });
 
-    // Subscribe to changes in the server list
-    this.serverService.serversChanged.subscribe((servers: Server[]) => {
-      this.servers = servers;
+    // Load the initial server data
+    this.serverService.getServers().subscribe((servers) => {
+      this.serverService.updateServers(servers);
     });
   }
 

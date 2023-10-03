@@ -44,7 +44,7 @@ export class ServerComponent implements OnInit {
     
       this.serverService.addServer(newServer).subscribe((addedServer) => {
         this.servers.push(addedServer);
-        this.serverService.notifyServersChanged(this.servers);
+        this.serverService.updateServers(this.servers);
       });
     }
     
@@ -56,7 +56,7 @@ export class ServerComponent implements OnInit {
   deleteServer(id: number) {
     this.serverService.deleteServer(id).subscribe(() => {
       this.servers = this.servers.filter((server) => server._id !== id);
-      this.serverService.notifyServersChanged(this.servers);
+      this.serverService.updateServers(this.servers);
     });
   }
 

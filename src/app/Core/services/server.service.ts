@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Server } from '../models/server.model';
 
 @Injectable({
@@ -13,7 +13,8 @@ export class ServerService {
   private deleteUrl = 'http://localhost:3000/api/servers';
 
 
-  serversChanged = new Subject<Server[]>();
+  private serversSubject = new BehaviorSubject<Server[]>([]);
+  servers$ = this.serversSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -33,8 +34,8 @@ export class ServerService {
     return this.http.delete<void>(url);
   }
 
-  // Call this method whenever the list of servers changes
-  notifyServersChanged(servers: Server[]) {
-    this.serversChanged.next(servers);
+  // Call this method to update the servers of servers changes
+  updateServers(servers: Server[]) {
+    this.serversSubject.next(servers);
   }
 }
