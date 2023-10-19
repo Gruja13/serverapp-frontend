@@ -8,9 +8,9 @@ import { Server } from '../models/server.model';
 })
 export class ServerService {
   // API url
-  private createUrl = 'http://localhost:3000/api/create';
-  private getUrl = 'http://localhost:3000/api/servers';
-  private deleteUrl = 'http://localhost:3000/api/servers';
+  private createUrl = 'serverapp-backend.vercel.app/api/create';
+  private getUrl = 'serverapp-backend.vercel.app/api/servers';
+  private deleteUrl = 'serverapp-backend.vercel.app/api/servers';
 
 
   private serversSubject = new BehaviorSubject<Server[]>([]);
