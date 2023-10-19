@@ -12,7 +12,7 @@ export class ServerComponent implements OnInit {
   servers: Server[] = [];
   allowNewServer = false;
   serverStatus = 'Offline';
-  inventoryNumber: number | null = null;
+  serverNumber: number | null = null;
 
   constructor(private serverService: ServerService) {}
 
@@ -35,9 +35,9 @@ export class ServerComponent implements OnInit {
   // Create new server
   createServer() {
     // Check if inventoryNumber is not null
-    if (this.inventoryNumber !== null) {
+    if (this.serverNumber !== null) {
       // Convert this.inventoryNumber to a valid number or use a default value
-      const serverNumber = isNaN(this.inventoryNumber) ? 0 : Number(this.inventoryNumber);
+      const serverNumber = isNaN(this.serverNumber) ? 0 : Number(this.serverNumber);
     
       // Create a new server with serverNumber and serverStatus
       const newServer = new Server(0, serverNumber, 'Created');
@@ -49,7 +49,7 @@ export class ServerComponent implements OnInit {
     }
     
     // Clear the input field
-    this.inventoryNumber = null;
+    this.serverNumber = null;
   }
 
   // Delete server from list

@@ -8,6 +8,8 @@ import { ServerService } from './Core/services/server.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  title = 'angular-app';
+  
   servers: Server[] = [];
 
   constructor(private serverService: ServerService) {}
